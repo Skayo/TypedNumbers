@@ -4,9 +4,9 @@
  * @return {number} - The number or `0` on NaN
  */
 function parseValue(value) {
-	if (typeof value === 'number') return value;
+	if (typeof value == 'number') return value;
 
-	let val = Number(value);
+	let val = +(value); // The `+` sign is equivalent to `Number(...)`, but a little bit faster.
 
 	if (isNaN(val)) return 0;
 	return val;
@@ -39,10 +39,10 @@ function createTypedNumber({
 	 * @constructor
 	 */
 	function TypedNumber(arg, byteOffset = 0, littleEndian = false) {
-		const _byteOffset = typeof byteOffset === 'number' ? byteOffset : +byteOffset;
-		const _littleEndian = typeof arg === 'boolean' ? arg : !!littleEndian;
+		const _byteOffset = typeof byteOffset == 'number' ? byteOffset : +byteOffset;
+		const _littleEndian = typeof arg == 'boolean' ? arg : !!littleEndian;
 
-		const _buffer = arg != null && typeof arg !== 'boolean' ? arg : new ArrayBuffer(BYTES);
+		const _buffer = arg != null && typeof arg != 'boolean' ? arg : new ArrayBuffer(BYTES);
 		const _dataView = new DataView(_buffer, _byteOffset, BYTES);
 
 
