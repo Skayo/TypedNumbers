@@ -87,6 +87,12 @@ function createTypedNumber({
 		// We define the instance properties like this, so they can't be overwritten:
 		Object.defineProperties(this, {
 			/**
+			 * The internal value.
+			 * @type {number}
+			 */
+			value: { get, set },
+
+			/**
 			 * Length of the typed number in bytes.
 			 * @type {number}
 			 */
@@ -103,12 +109,6 @@ function createTypedNumber({
 			 * @type {ArrayBufferLike}
 			 */
 			buffer: { value: _buffer, enumerable: true },
-
-			/**
-			 * The internal value.
-			 * @type {number}
-			 */
-			value: { get, set },
 		});
 	}
 
@@ -127,7 +127,7 @@ function createTypedNumber({
 		MAX_VALUE: { value: MAX_VALUE },
 
 		/**
-		 * The size of this number type in bits.
+		 * The size of this number type in bytes.
 		 * @type {number}
 		 */
 		BYTES: { value: BYTES },
@@ -144,7 +144,6 @@ function createTypedNumber({
 				this.value = parseValue(value);
 			},
 		},
-
 
 		/**
 		 * Returns the internal value.
@@ -194,17 +193,56 @@ function createTypedNumber({
 		 * console.log(Object.prototype.toString.call(num)); // -> [object Uint8]
 		 */
 		[Symbol.toStringTag]: { value: NAME },
-
 	});
 
 	return TypedNumber;
 }
 
 /** @type {import('.').Int8} */
+exports.Int8 = createTypedNumber({
+	name:     'Int8',
+	unsigned: false,
+	bits:     8,
+	minValue: -128,
+	maxValue: 127,
+});
+
 exports.Uint8 = createTypedNumber({
 	name:     'Uint8',
 	unsigned: true,
 	bits:     8,
 	minValue: 0,
 	maxValue: 255,
+});
+
+exports.Int16 = createTypedNumber({
+	name:     'Int16',
+	unsigned: false,
+	bits:     16,
+	minValue: -32768,
+	maxValue: 32767,
+});
+
+exports.Uint16 = createTypedNumber({
+	name:     'Uint16',
+	unsigned: true,
+	bits:     16,
+	minValue: 0,
+	maxValue: 65535,
+});
+
+exports.Int32 = createTypedNumber({
+	name:     'Int32',
+	unsigned: false,
+	bits:     32,
+	minValue: -2147483648,
+	maxValue: 2147483647,
+});
+
+exports.Uint32 = createTypedNumber({
+	name:     'Uint32',
+	unsigned: true,
+	bits:     32,
+	minValue: 0,
+	maxValue: 4294967295,
 });
