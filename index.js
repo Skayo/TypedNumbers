@@ -19,7 +19,7 @@ function parseValue(value) {
  * @param {number} BITS
  * @param {number} MIN_VALUE
  * @param {number} MAX_VALUE
- * @return {TypedNumber}
+ * @return {import('.').TypedNumber}
  */
 function createTypedNumber({
 	name:     NAME,
@@ -112,7 +112,7 @@ function createTypedNumber({
 		});
 	}
 
-	// We define the static methods/properties like this, so they can't be overwritten:
+	// Same here. We define the static methods/properties like this, so they can't be overwritten:
 	Object.defineProperties(TypedNumber, {
 		/**
 		 * The smallest value that can be represented by this number type.
@@ -127,13 +127,13 @@ function createTypedNumber({
 		MAX_VALUE: { value: MAX_VALUE },
 
 		/**
-		 * The size of this number type in bytes.
+		 * Length of the typed number in bytes.
 		 * @type {number}
 		 */
 		BYTES: { value: BYTES },
 	});
 
-	// Same here. We define the non-static methods/properties like this, so they can't be overwritten:
+	// Again, same here. We define the non-static methods/properties like this, so they can't be overwritten:
 	Object.defineProperties(TypedNumber.prototype, {
 		/**
 		 * Sets the internal value to a new value.
@@ -166,7 +166,7 @@ function createTypedNumber({
 		 */
 		valueOf: {
 			value: function () {
-				return this.get();
+				return this.value;
 			},
 		},
 
