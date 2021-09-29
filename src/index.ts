@@ -134,7 +134,7 @@ export function u32(num: number | bigint): u32 {
 /**
  * ## 64-bit two's complement signed integer
  *
- * - **Value Range:** `-2^63` to `2^63 - 1`
+ * - **Value Range:** `-9223372036854775808` to `9223372036854775807`
  * - **Size in bytes:** `8`
  * - **Web IDL type:** `bigint`
  * - **Equivalent C type:** `int64_t` (`signed long long`)
@@ -150,7 +150,7 @@ export function i64(num: number | bigint): i64 {
 /**
  * ## 64-bit unsigned integer
  *
- * - **Value Range:** `0` to `2^64 - 1`
+ * - **Value Range:** `0` to `18446744073709551615`
  * - **Size in bytes:** `8`
  * - **Web IDL type:** `bigint`
  * - **Equivalent C type:** `uint64_t` (`unsigned long long`)
@@ -164,27 +164,33 @@ export function u64(num: number | bigint): u64 {
 }
 
 /**
- * ## 32-bit IEEE floating point number
- * ### (7 significant digits e.g., `1.123456`)
+ * ## 128-bit two's complement signed integer
  *
- * - **Value Range:** `-3.4E38` to `3.4E38` and `1.2E-38` is the min positive number
- * - **Size in bytes:** `4`
- * - **Web IDL type:** `unrestricted float`
- * - **Equivalent C type:** `float`
+ * - **Value Range:** `-170141183460469231731687303715884105728` to `170141183460469231731687303715884105727`
+ * - **Size in bytes:** `16`
+ * - **Web IDL type:** `bigint`
+ * - **Equivalent C type:** `int128_t`
  */
-export type f32 = TypedNumber<'f32'>;
+export type i128 = BigIntTypedNumber<'i128'>;
 
-// TODO: f32 convert function
+export function i128(num: number | bigint): i128 {
+	// This function returns a BigInt, so it's similar to the Int32 conversion, but we don't convert back to number.
+	const bigNum = typeof num == 'bigint' ? num : BigInt(num);
+	return ((bigNum & 0x7fff_ffff_ffff_ffff_ffff_ffff_ffff_ffffn) - (bigNum & 0x8000_0000_0000_0000_0000_0000_0000_0000n)) as i128;
+}
 
 /**
- * ## 64-bit IEEE floating point number
- * ### (16 significant digits e.g., `1.123...15`)
+ * ## 128-bit unsigned integer
  *
- * - **Value Range:** `-1.8E308` to `1.8E308` and `5E-324` is the min positive number
- * - **Size in bytes:** `8`
- * - **Web IDL type:** `unrestricted double`
- * - **Equivalent C type:** `double`
+ * - **Value Range:** `0` to `340282366920938463463374607431768211455`
+ * - **Size in bytes:** `16`
+ * - **Web IDL type:** `bigint`
+ * - **Equivalent C type:** `uint128_t`
  */
-export type f64 = TypedNumber<'f64'>;
+export type u128 = BigIntTypedNumber<'u128'>;
 
-// TODO: f64 convert function
+export function u128(num: number | bigint): u128 {
+	// This function returns a BigInt, so it's similar to the Uint32 conversion, but we don't convert back to number.
+	const bigNum = typeof num == 'bigint' ? num : BigInt(num);
+	return (bigNum & 0xffff_ffff_ffff_ffff_ffff_ffff_ffff_ffffn) as u128;
+}
