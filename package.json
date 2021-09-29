@@ -1,23 +1,20 @@
 {
 	"name": "typed-numbers",
-	"description": "Typed Number for JavaScript",
+	"description": "Typed Numbers for JavaScript",
 	"version": "1.0.0",
 	"author": "Skayo (https://skayo.dev)",
 	"license": "MIT",
-	"source": "./index.js",
-	"types": "./index.d.ts",
-	"main": "./dist/typed-numbers.cjs",
-	"module": "./dist/typed-numbers.module.js",
-	"exports": "./dist/typed-numbers.js",
-	"unpkg": "./dist/typed-numbers.umd.js",
+	"source": "./src/index.ts",
+	"types": "./dist/index.d.ts",
+	"main": "./dist/index.js",
 	"scripts": {
-		"build": "microbundle",
-		"dev": "microbundle watch"
+		"build": "tsc",
+		"dev": "tsc --watch"
+	},
+	"dependencies": {
+		"typescript": "^4.4.3"
 	},
 	"engines": {
 		"node": ">=10"
-	},
-	"devDependencies": {
-		"microbundle": "^0.13.3"
 	}
 }
