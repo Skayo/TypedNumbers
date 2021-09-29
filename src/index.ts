@@ -7,7 +7,7 @@ type TypedNumber<T> = number & {
 
 	/**
 	 * # !!! DO NOT USE THIS PROPERTY IN YOUR CODE !!!
-	 * ## This is just used to make each TypedNumber unique for Typescript and doesn't actually exist.
+	 * ## This is just used to make each `TypedNumber` alias unique for Typescript and doesn't actually exist.
 	 * @ignore
 	 * @private
 	 * @readonly
@@ -18,13 +18,13 @@ type TypedNumber<T> = number & {
 };
 
 /**
- * Same as the above but uses `bigint` instead of `number`.
+ * Same as `TypedNumber` but uses `bigint` instead of `number`.
  */
-type BigIntTypedNumber<T> = bigint & {
+type BigTypedNumber<T> = bigint & {
 
 	/**
 	 * # !!! DO NOT USE THIS PROPERTY IN YOUR CODE !!!
-	 * ## This is just used to make each BigIntTypedNumber unique for Typescript and doesn't actually exist.
+	 * ## This is just used to make each `BigTypedNumber` alias unique for Typescript and doesn't actually exist.
 	 * @ignore
 	 * @private
 	 * @readonly
@@ -139,7 +139,7 @@ export function u32(num: number | bigint): u32 {
  * - **Web IDL type:** `bigint`
  * - **Equivalent C type:** `int64_t` (`signed long long`)
  */
-export type i64 = BigIntTypedNumber<'i64'>;
+export type i64 = BigTypedNumber<'i64'>;
 
 export function i64(num: number | bigint): i64 {
 	// This function returns a BigInt, so it's similar to the Int32 conversion, but we don't convert back to number.
@@ -155,7 +155,7 @@ export function i64(num: number | bigint): i64 {
  * - **Web IDL type:** `bigint`
  * - **Equivalent C type:** `uint64_t` (`unsigned long long`)
  */
-export type u64 = BigIntTypedNumber<'u64'>;
+export type u64 = BigTypedNumber<'u64'>;
 
 export function u64(num: number | bigint): u64 {
 	// This function returns a BigInt, so it's similar to the Uint32 conversion, but we don't convert back to number.
@@ -171,7 +171,7 @@ export function u64(num: number | bigint): u64 {
  * - **Web IDL type:** `bigint`
  * - **Equivalent C type:** `int128_t`
  */
-export type i128 = BigIntTypedNumber<'i128'>;
+export type i128 = BigTypedNumber<'i128'>;
 
 export function i128(num: number | bigint): i128 {
 	// This function returns a BigInt, so it's similar to the Int32 conversion, but we don't convert back to number.
@@ -187,7 +187,7 @@ export function i128(num: number | bigint): i128 {
  * - **Web IDL type:** `bigint`
  * - **Equivalent C type:** `uint128_t`
  */
-export type u128 = BigIntTypedNumber<'u128'>;
+export type u128 = BigTypedNumber<'u128'>;
 
 export function u128(num: number | bigint): u128 {
 	// This function returns a BigInt, so it's similar to the Uint32 conversion, but we don't convert back to number.
