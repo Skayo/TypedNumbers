@@ -35,6 +35,7 @@ type BigTypedNumber<T> = bigint & {
 };
 
 
+
 /**
  * ## 8-bit two's complement signed integer
  *
@@ -45,11 +46,17 @@ type BigTypedNumber<T> = bigint & {
  */
 export type i8 = TypedNumber<'i8'>;
 
+/**
+ * Convert Number or BigInt to 8-bit two's complement signed integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 8-bit two's complement signed integer (Number).
+ */
 export function i8(num: number | bigint): i8 {
 	// If user supplied a BigInt, we calculate using BigInt and convert to Number. Otherwise just do the calculation normally.
 	if (typeof num == 'bigint') return Number((num & 0x7fn) - (num & 0x80n)) as i8;
 	return ((num & 0x7f) - (num & 0x80)) as i8;
 }
+
 
 /**
  * ## 8-bit unsigned integer
@@ -61,11 +68,17 @@ export function i8(num: number | bigint): i8 {
  */
 export type u8 = TypedNumber<'u8'>;
 
+/**
+ * Convert Number or BigInt to 8-bit unsigned integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 8-bit unsigned integer (Number).
+ */
 export function u8(num: number | bigint): u8 {
 	// If user supplied a BigInt, we calculate using BigInt and convert to Number. Otherwise just do the calculation normally.
 	if (typeof num == 'bigint') return Number(num & 0xffn) as u8;
 	return (num & 0xff) as u8;
 }
+
 
 /**
  * ## 16-bit two's complement signed integer
@@ -77,11 +90,17 @@ export function u8(num: number | bigint): u8 {
  */
 export type i16 = TypedNumber<'i16'>;
 
+/**
+ * Convert Number or BigInt to 16-bit two's complement signed integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 16-bit two's complement signed integer (Number).
+ */
 export function i16(num: number | bigint): i16 {
 	// If user supplied a BigInt, we calculate using BigInt and convert to Number. Otherwise just do the calculation normally.
 	if (typeof num == 'bigint') return Number((num & 0x7fffn) - (num & 0x8000n)) as i16;
 	return ((num & 0x7fff) - (num & 0x8000)) as i16;
 }
+
 
 /**
  * ## 16-bit unsigned integer
@@ -93,11 +112,17 @@ export function i16(num: number | bigint): i16 {
  */
 export type u16 = TypedNumber<'u16'>;
 
+/**
+ * Convert Number or BigInt to 16-bit unsigned integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 16-bit unsigned integer (Number).
+ */
 export function u16(num: number | bigint): u16 {
 	// If user supplied a BigInt, we calculate using BigInt and convert to Number. Otherwise just do the calculation normally.
 	if (typeof num == 'bigint') return Number(num & 0xffffn) as u16;
 	return (num & 0xffff) as u16;
 }
+
 
 /**
  * ## 32-bit two's complement signed integer
@@ -109,11 +134,17 @@ export function u16(num: number | bigint): u16 {
  */
 export type i32 = TypedNumber<'i32'>;
 
+/**
+ * Convert Number or BigInt to 32-bit two's complement signed integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 32-bit two's complement signed integer (Number).
+ */
 export function i32(num: number | bigint): i32 {
 	// Here we do the actual calculation using BigInt and convert back to Number afterwards.
 	const bigNum = typeof num == 'bigint' ? num : BigInt(num);
 	return Number((bigNum & 0x7fff_ffffn) - (bigNum & 0x8000_0000n)) as i32;
 }
+
 
 /**
  * ## 32-bit unsigned integer
@@ -125,11 +156,17 @@ export function i32(num: number | bigint): i32 {
  */
 export type u32 = TypedNumber<'u32'>;
 
+/**
+ * Convert Number or BigInt to 32-bit unsigned integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 32-bit unsigned integer (Number).
+ */
 export function u32(num: number | bigint): u32 {
 	// Here we do the actual calculation using BigInt and convert back to Number afterwards.
 	const bigNum = typeof num == 'bigint' ? num : BigInt(num);
 	return Number(bigNum & 0xffff_ffffn) as u32;
 }
+
 
 /**
  * ## 64-bit two's complement signed integer
@@ -141,11 +178,17 @@ export function u32(num: number | bigint): u32 {
  */
 export type i64 = BigTypedNumber<'i64'>;
 
+/**
+ * Convert Number or BigInt to 64-bit two's complement signed integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 64-bit two's complement signed integer (BigInt).
+ */
 export function i64(num: number | bigint): i64 {
 	// This function returns a BigInt, so it's similar to the Int32 conversion, but we don't convert back to Number.
 	const bigNum = typeof num == 'bigint' ? num : BigInt(num);
 	return ((bigNum & 0x7fff_ffff_ffff_ffffn) - (bigNum & 0x8000_0000_0000_0000n)) as i64;
 }
+
 
 /**
  * ## 64-bit unsigned integer
@@ -157,11 +200,17 @@ export function i64(num: number | bigint): i64 {
  */
 export type u64 = BigTypedNumber<'u64'>;
 
+/**
+ * Convert Number or BigInt to 64-bit unsigned integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 64-bit unsigned integer (BigInt).
+ */
 export function u64(num: number | bigint): u64 {
 	// This function returns a BigInt, so it's similar to the Uint32 conversion, but we don't convert back to Number.
 	const bigNum = typeof num == 'bigint' ? num : BigInt(num);
 	return (bigNum & 0xffff_ffff_ffff_ffffn) as u64;
 }
+
 
 /**
  * ## 128-bit two's complement signed integer
@@ -173,11 +222,17 @@ export function u64(num: number | bigint): u64 {
  */
 export type i128 = BigTypedNumber<'i128'>;
 
+/**
+ * Convert Number or BigInt to 128-bit two's complement signed integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 128-bit two's complement signed integer (BigInt).
+ */
 export function i128(num: number | bigint): i128 {
 	// This function returns a BigInt, so it's similar to the Int32 conversion, but we don't convert back to Number.
 	const bigNum = typeof num == 'bigint' ? num : BigInt(num);
 	return ((bigNum & 0x7fff_ffff_ffff_ffff_ffff_ffff_ffff_ffffn) - (bigNum & 0x8000_0000_0000_0000_0000_0000_0000_0000n)) as i128;
 }
+
 
 /**
  * ## 128-bit unsigned integer
@@ -189,6 +244,11 @@ export function i128(num: number | bigint): i128 {
  */
 export type u128 = BigTypedNumber<'u128'>;
 
+/**
+ * Convert Number or BigInt to 128-bit unsigned integer.
+ * @param num - The Number or BigInt to convert.
+ * @returns - 128-bit unsigned integer (BigInt).
+ */
 export function u128(num: number | bigint): u128 {
 	// This function returns a BigInt, so it's similar to the Uint32 conversion, but we don't convert back to Number.
 	const bigNum = typeof num == 'bigint' ? num : BigInt(num);
