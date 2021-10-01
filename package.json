@@ -15,9 +15,6 @@
 		"build": "tsc",
 		"dev": "tsc --watch"
 	},
-	"dependencies": {
-		"typescript": "^4.4.3"
-	},
 	"engines": {
 		"node": ">=10"
 	},
@@ -28,5 +25,8 @@
 	},
 	"bugs": {
 		"url": "https://github.com/Skayo/TypedNumbers/issues"
+	},
+	"devDependencies": {
+		"typescript": "^4.4.3"
 	}
 }
