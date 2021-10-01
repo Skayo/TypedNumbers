@@ -1,7 +1,7 @@
 {
 	"name": "typed-numbers",
 	"description": "Typed Numbers for JavaScript",
-	"version": "1.0.0",
+	"version": "0.0.0-experimental.0",
 	"author": "Skayo (https://skayo.dev)",
 	"license": "MIT",
 	"source": "./src/index.ts",
