@@ -1,32 +1,46 @@
 {
 	"name": "typed-numbers",
-	"description": "Typed Numbers for JavaScript",
-	"version": "0.0.1-experimental.1",
+	"description": "Super simple type-safe fixed-length integers for TypeScript/JavaScript 🔢",
+	"version": "1.0.0",
 	"author": "Skayo (https://skayo.dev)",
 	"license": "MIT",
-	"source": "./src/index.ts",
+	"repository": "Skayo/TypedNumbers",
+	"homepage": "https://github.com/Skayo/TypedNumbers",
+	"bugs": "https://github.com/Skayo/TypedNumbers/issues",
+	"source": "src/index.ts",
+	"exports": "./dist/typed-numbers.modern.js",
+	"main": "./dist/typed-numbers.js",
+	"module": "./dist/typed-numbers.module.js",
+	"unpkg": "./dist/typed-numbers.umd.js",
 	"types": "./dist/index.d.ts",
-	"main": "./dist/index.js",
 	"files": [
-		"src",
-		"dist"
+		"dist",
+		"src"
 	],
 	"scripts": {
-		"build": "tsc",
-		"dev": "tsc --watch"
+		"build": "microbundle",
+		"dev": "microbundle watch --no-compress"
 	},
 	"engines": {
-		"node": ">=10"
+		"node": ">=10.0.0"
 	},
-	"homepage": "https://github.com/Skayo/TypedNumbers",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Skayo/TypedNumbers.git"
-	},
-	"bugs": {
-		"url": "https://github.com/Skayo/TypedNumbers/issues"
-	},
+	"keywords": [
+		"int8",
+		"uint8",
+		"int16",
+		"uint16",
+		"int32",
+		"uint32",
+		"int64",
+		"uint64",
+		"int128",
+		"uint128",
+		"typed-array",
+		"alternative",
+		"implementation",
+		"native"
+	],
 	"devDependencies": {
-		"typescript": "^4.4.3"
+		"microbundle": "^0.13.3"
 	}
 }

@@ -1,6 +1,12 @@
-*.log
+*-debug.log
+*-error.log
 .DS_Store
+/.nyc_output
+/dist
+/lib
+/tmp
+/yarn.lock
+/pnpm-lock.yaml
+/package-lock.json
 node_modules
-dist
 .idea
-pnpm-lock.yaml
