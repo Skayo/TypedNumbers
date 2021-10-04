@@ -1,6 +1,6 @@
 {
 	"name": "typed-numbers",
-	"description": "Super simple type-safe fixed-length integers for TypeScript/JavaScript 🔢",
+	"description": "Super simple type-safe fixed-length integers for TypeScript/JavaScript",
 	"version": "1.0.2",
 	"author": "Skayo (https://skayo.dev)",
 	"license": "MIT",
