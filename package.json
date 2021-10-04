@@ -19,7 +19,8 @@
 	],
 	"scripts": {
 		"build": "microbundle",
-		"dev": "microbundle watch --no-compress"
+		"dev": "microbundle watch --no-compress",
+		"prepare": "microbundle"
 	},
 	"engines": {
 		"node": ">=10.0.0"
