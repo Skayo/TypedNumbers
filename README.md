@@ -9,7 +9,7 @@
   <a href="#about">About</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
-  <a href="#resources">Resources</a> •
+  <a href="#naming-scheme">Naming Scheme</a> •
   <a href="#license">License</a>
 </p>
 
