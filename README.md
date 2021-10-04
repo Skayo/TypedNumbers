@@ -15,7 +15,7 @@
 
 ## About
 
-I've made this library while building a little Intel 8080 emulator in JavaScript.  
+I've made this library while building a little [Intel 8080 emulator in JavaScript](https://github.com/Skayo/EightyEighty.js).  
 I noticed the lack of typed numbers in JavaScript, and how useful they could be, and then made this idea into a whole library!
 
 ## Installation
