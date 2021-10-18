@@ -7,10 +7,10 @@
 	"repository": "Skayo/TypedNumbers",
 	"homepage": "https://github.com/Skayo/TypedNumbers",
 	"bugs": "https://github.com/Skayo/TypedNumbers/issues",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"module": "dist/typed-numbers.esm.js",
-	"unpkg": "dist/typed-numbers.umd.production.min.js",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"module": "./dist/typed-numbers.esm.js",
+	"unpkg": "./dist/typed-numbers.umd.production.min.js",
 	"files": [
 		"dist",
 		"src"
