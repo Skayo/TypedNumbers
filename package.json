@@ -7,20 +7,18 @@
 	"repository": "Skayo/TypedNumbers",
 	"homepage": "https://github.com/Skayo/TypedNumbers",
 	"bugs": "https://github.com/Skayo/TypedNumbers/issues",
-	"source": "src/index.ts",
-	"exports": "./dist/typed-numbers.modern.js",
-	"main": "./dist/typed-numbers.js",
-	"module": "./dist/typed-numbers.module.js",
-	"unpkg": "./dist/typed-numbers.umd.js",
-	"types": "./dist/index.d.ts",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"module": "dist/typed-numbers.esm.js",
+	"unpkg": "dist/typed-numbers.umd.production.min.js",
 	"files": [
 		"dist",
 		"src"
 	],
 	"scripts": {
-		"build": "microbundle",
-		"dev": "microbundle watch --no-compress",
-		"prepare": "microbundle"
+		"build": "tsdx build --format cjs,umd,esm --name TypedNumbers",
+		"dev": "tsdx watch",
+		"prepare": "npm run build"
 	},
 	"engines": {
 		"node": ">=10.0.0"
@@ -42,6 +40,7 @@
 		"native"
 	],
 	"devDependencies": {
-		"microbundle": "^0.13.3"
+		"microbundle": "^0.13.3",
+		"tsdx": "^0.14.1"
 	}
 }
