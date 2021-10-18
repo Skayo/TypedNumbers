@@ -16,7 +16,7 @@
 		"src"
 	],
 	"scripts": {
-		"build": "tsdx build --format cjs,umd,esm --name TypedNumbers",
+		"build": "tsdx build --format cjs,umd,esm",
 		"dev": "tsdx watch",
 		"prepare": "npm run build"
 	},
