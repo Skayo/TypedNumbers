@@ -40,7 +40,6 @@
 		"native"
 	],
 	"devDependencies": {
-		"microbundle": "^0.13.3",
 		"tsdx": "^0.14.1"
 	}
 }
